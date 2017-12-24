@@ -12,7 +12,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.advantis.test.pages.*;
 
-//for fist push...............
+//for fist push...............s
 public class TestBase {	
 	
 
