@@ -1,4 +1,4 @@
-package com.selenium.framework.Test;
+package com.advantis.test;
 import java.io.FileInputStream;
 import java.util.List;
 import java.util.Properties;
@@ -10,20 +10,16 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-import FaceBook.HomePage;
+import com.advantis.test.pages.*;
 
 
-//for first commit........
-//this is my second commit...........
-//this commit into new file.........
-//...........................
 public class TestBase {	
 	
 
 public WebDriver driver;
-String configPath = "C:/Selenium_2017/com.selenum.frameworkdd/src/main/java/Property/config.properties"; 
-String orPath = "C:/Selenium_2017/com.selenum.frameworkdd/src/main/java/Property/objectrepo.properties";
-protected Properties objectrepo;
+String configPath = "C:/Selenium_2017/com.advantis.selenium/src/test/java/com/advantis/test/config/config.properties"; 
+String orPath = "C:/Selenium_2017/com.advantis.selenium/src/test/java/com/advantis/test/config/objrep.properties";
+protected Properties objrep;
 protected Properties config;
 public String browser;
 
@@ -31,13 +27,13 @@ public static Logger logger = Logger.getRootLogger();
 //Logger logger = Logger.getLogger("devpinoyLogger");
 
 public HomePage home;
-
+public HomeLoanPage homeLoan;
 
 
 
 public void initialize() throws Throwable{
 	config = loadPropertyFile(configPath);
-	objectrepo = loadPropertyFile(orPath);
+	objrep = loadPropertyFile(orPath);
 	browser = config.getProperty("browser");
 	
 	getDriver(browser); 		
@@ -72,8 +68,8 @@ public void getDriver(String browser){
 
 //Initialize classes
  public void initAllClasses(){
- home = new HomePage(driver, objectrepo);
-
+ home = new HomePage(driver, objrep);
+ homeLoan = new HomeLoanPage(driver, objrep);
 }
  
  
